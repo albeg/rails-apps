@@ -1,0 +1,43 @@
+require 'spec_helper'
+
+describe "StaticPages" do
+
+  describe "Home page" do
+    it "should have the content, 'Rapps'" do
+    	visit '/static_pages/home'      
+      page.should have_content('Rails')
+    end
+
+    it "should have the right title Home" do
+	  	visit '/static_pages/home'
+	  	page.should have_selector('title', text: "Rails | Home")
+  	end
+  end
+
+  describe "Help page" do
+
+    it "should have the content 'Help'" do
+      visit '/static_pages/help'
+      page.should have_content('Help')
+    end
+
+    it "should have the right title Help" do
+	  	visit '/static_pages/help'
+	  	page.should have_selector('title', text: "Rails | Help")
+  	end
+  end
+
+  describe "About pages" do
+
+  	it	"should have the content 'About'" do
+  		visit '/static_pages/about'
+  		page.should have_content('About page')
+  	end
+
+    it "should have the right title About us" do
+	  	visit '/static_pages/about'
+	  	page.should have_selector('title', text: "Rails | About")
+  	end
+  end
+
+end
